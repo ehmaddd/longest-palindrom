@@ -12,7 +12,7 @@ var longestPalindrome = function(s) {
       }
     }
   }
-  console.log(pal);
+  let max = pal[0];
 };
 
 longestPalindrome("babad");
