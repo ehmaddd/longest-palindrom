@@ -21,4 +21,4 @@ var longestPalindrome = function(s) {
   console.log(max);
 };
 
-longestPalindrome("babad");
+longestPalindrome("aacabdkacaa");
