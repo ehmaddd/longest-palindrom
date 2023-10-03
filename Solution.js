@@ -18,6 +18,7 @@ var longestPalindrome = function(s) {
       max = pal[i];
     }
   }
+  console.log(max);
 };
 
 longestPalindrome("babad");
