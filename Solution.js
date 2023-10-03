@@ -1,24 +1,30 @@
 var longestPalindrome = function(s) {
-  const pal = [];
-  for(let i=0; i<s.length; i++){
-    for(let j=i; j<s.length; j++){
-      if(s[i]==s[j]){
-        let str = '';
-        for(let k=i; k<=j; k++){
-          str += s[k];
-        }
-        pal.push(str);
-        str = '';
+  if (!s || s.length === 0) {
+    return "";
+  }
+
+  let start = 0;
+  let maxLength = 1;
+
+  function expandAroundCenter(left, right) {
+    while (left >= 0 && right < s.length && s[left] === s[right]) {
+      if (right - left + 1 > maxLength) {
+        start = left;
+        maxLength = right - left + 1;
       }
+      left--;
+      right++;
     }
   }
-  let max = pal[0];
-  for(let i=1; i<pal.length; i++){
-    if(pal[i].length > max.length) {
-      max = pal[i];
-    }
+
+  for (let i = 0; i < s.length; i++) {
+    // Odd length palindrome
+    expandAroundCenter(i, i);
+    // Even length palindrome
+    expandAroundCenter(i, i + 1);
   }
-  console.log(max);
+
+  console.log(s.substring(start, start + maxLength));
 };
 
 longestPalindrome("aacabdkacaa");
