@@ -13,8 +13,10 @@ var longestPalindrome = function(s) {
     }
   }
   let max = pal[0];
-  for(let i=0; i<pal.length; i++){
-
+  for(let i=1; i<pal.length; i++){
+    if(pal[i].length > max.length) {
+      max = pal[i];
+    }
   }
 };
 
